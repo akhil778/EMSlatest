@@ -1,0 +1,65 @@
+{
+  "name": "employee-management-system",
+  "version": "1.0.0",
+  "description": "Employee Management System\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[C\u001b[D",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha test/functional/home.js -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/somasuraj3/EMS.git"
+  },
+  "author": "Suraj Soma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/somasuraj3/EMS/issues"
+  },
+  "homepage": "https://github.com/somasuraj3/EMS#readme",
+  "dependencies": {
+    "MD5": "^1.3.0",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.4.4",
+    "morgan": "^1.6.1",
+    "multer": "^1.1.0"
+  },
+  "devDependencies": {
+    "chai": "~3.5.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.2",
+    "gulp-util": "~3.0.8",
+    "gulp-watch": "^4.3.5",
+    "jshint": "^2.9.1",
+    "jshint-stylish": "^2.1.0",
+    "main-bower-files": "^2.11.1",
+    "run-sequence": "^1.1.5",
+    "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0",
+    "mocha": "~3.2.0",
+    "gulp-istanbul": "~1.1.1",
+    "orchestrator": "~0.3.8",
+    "deprecated": "0.0.1",
+    "vinyl-fs": "~2.4.4",
+    "yargs": "~6.6.0",
+    "gulp-mocha": "~4.0.1",
+    "gulp-load-plugins": "~1.5.0",
+    "express": "~4.14.1",
+    "body-parser": "~1.16.1",
+    "morgan": "~1.8.1",
+    "multer": "~1.3.0",
+    "method-override": "~2.3.7",
+    "MD5": "~1.3.0",
+    "mongoose": "~4.8.5"
+  }
+}

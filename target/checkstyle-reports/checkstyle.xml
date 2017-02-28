@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<checkstyle version="4.3">
+	<file name="test\functional\home.js">
+		<error line="15" column="28" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="Gulpfile.js">
+		<error line="28" column="5" severity="info" message="Comma warnings can be turned off with &apos;laxcomma&apos;." source="jshint.I001" />
+		<error line="27" column="5" severity="warning" message="Misleading line break before &apos;,&apos;; readers may interpret this as an expression boundary." source="jshint.W014" />
+		<error line="145" column="46" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+</checkstyle>
