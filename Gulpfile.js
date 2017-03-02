@@ -4,6 +4,7 @@ var mocha =  require('gulp-mocha');
 var util = require('gulp-util');
 var jshint = require('gulp-jshint');
 var istanbul = require('gulp-istanbul');
+var sonar = require('gulp-sonar');
 var checkstyleReporter = require('gulp-jshint-checkstyle-reporter');
 
 var $ = require('gulp-load-plugins')({lazy: true});
@@ -61,6 +62,42 @@ gulp.task('test4', function (cb) {
        // .pipe(istanbul.enforceThresholds({ thresholds: { global: 90 } })) // Enforce a coverage of at least 90%
         .on('end', cb);
     });
+});
+
+gulp.task('sonar', function () {
+    var options = {
+        sonar: {
+            host: {
+                url: 'http://localhost:9080'
+            },
+            jdbc: {
+                url: 'jdbc:mysql://localhost:3306/sonar',
+                username: 'sonar',
+                password: 'sonar'
+            },
+            projectKey: 'sonar:my-project:1.0.0',
+            projectName: 'My Project',
+            projectVersion: '1.0.0',
+            // comma-delimited string of source directories 
+            sources: 'app/controllers/home.js',
+            language: 'js',
+            sourceEncoding: 'UTF-8',
+            javascript: {
+                lcov: {
+                    reportPath: 'test/sonar_report/lcov.info'
+                }
+            },
+            exec: {
+                // All these properties will be send to the child_process.exec method (see: https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback ) 
+                // Increase the amount of data allowed on stdout or stderr (if this value is exceeded then the child process is killed, and the gulp-sonar will fail). 
+                maxBuffer : 1024*1024
+            }
+        }
+    };
+
+		  return gulp.src('server.js', { read: false })
+        .pipe(sonar(options))
+        .on('error', util.log);
 });
 
 
@@ -142,5 +179,5 @@ function log(msg) {
     }
 }
 
-gulp.task('default',['test4','lint','mocha']);
+gulp.task('default',['test4','lint','mocha', 'sonar']);
     
