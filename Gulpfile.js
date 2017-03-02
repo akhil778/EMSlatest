@@ -179,5 +179,5 @@ function log(msg) {
     }
 }
 
-gulp.task('default',['test4','lint','mocha', 'sonar']);
+gulp.task('default',['test4','lint','mocha']);
     
