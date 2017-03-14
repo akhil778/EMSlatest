@@ -1,9 +1,0 @@
-
-var __cov_Nd1SHLjfUnZMlxBgU5MpRw = (Function('return this'))();
-if (!__cov_Nd1SHLjfUnZMlxBgU5MpRw.$$cov_1487753224911$$) { __cov_Nd1SHLjfUnZMlxBgU5MpRw.$$cov_1487753224911$$ = {}; }
-__cov_Nd1SHLjfUnZMlxBgU5MpRw = __cov_Nd1SHLjfUnZMlxBgU5MpRw.$$cov_1487753224911$$;
-if (!(__cov_Nd1SHLjfUnZMlxBgU5MpRw['D:\\Gulp\\EMS\\app\\routes.js'])) {
-   __cov_Nd1SHLjfUnZMlxBgU5MpRw['D:\\Gulp\\EMS\\app\\routes.js'] = {"path":"D:\\Gulp\\EMS\\app\\routes.js","s":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0},"b":{},"f":{"1":0},"fnMap":{"1":{"name":"(anonymous_1)","line":6,"loc":{"start":{"line":6,"column":17},"end":{"line":6,"column":30}}}},"statementMap":{"1":{"start":{"line":1,"column":0},"end":{"line":4,"column":38}},"2":{"start":{"line":6,"column":0},"end":{"line":20,"column":2}},"3":{"start":{"line":14,"column":1},"end":{"line":14,"column":38}},"4":{"start":{"line":15,"column":1},"end":{"line":15,"column":40}},"5":{"start":{"line":16,"column":1},"end":{"line":16,"column":46}},"6":{"start":{"line":18,"column":1},"end":{"line":18,"column":31}},"7":{"start":{"line":19,"column":1},"end":{"line":19,"column":17}}},"branchMap":{}};
-}
-__cov_Nd1SHLjfUnZMlxBgU5MpRw = __cov_Nd1SHLjfUnZMlxBgU5MpRw['D:\\Gulp\\EMS\\app\\routes.js'];
-__cov_Nd1SHLjfUnZMlxBgU5MpRw.s['1']++;var express=require('express'),router=express.Router(),other=require('./controllers/other'),home=require('./controllers/home');__cov_Nd1SHLjfUnZMlxBgU5MpRw.s['2']++;module.exports=function(app){__cov_Nd1SHLjfUnZMlxBgU5MpRw.f['1']++;__cov_Nd1SHLjfUnZMlxBgU5MpRw.s['3']++;router.get('/employees',home.index);__cov_Nd1SHLjfUnZMlxBgU5MpRw.s['4']++;router.post('/employees',home.create);__cov_Nd1SHLjfUnZMlxBgU5MpRw.s['5']++;router.delete('/employees/:id',home.remove);__cov_Nd1SHLjfUnZMlxBgU5MpRw.s['6']++;router.get('/ip',other.index);__cov_Nd1SHLjfUnZMlxBgU5MpRw.s['7']++;app.use(router);};
