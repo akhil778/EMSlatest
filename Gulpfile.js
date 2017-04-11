@@ -1,6 +1,6 @@
 var config = require('./config/variables.js')
-var livereload = require('gulp-livereload')
-var refresh = require('gulp-refresh')
+
+
 
 //Generate report for syntax checking
 config.gulp.task('lint', function() {
@@ -9,16 +9,14 @@ config.gulp.task('lint', function() {
       'app\public\views\home.html'
   ])
     .pipe(config.jshint())
-    .pipe(config.jshint.reporter('gulp-jshint-html-reporter', {
-      filename: 'jshint-report' + '/jshint-output.html',
-     createMissingFolders : true  
-    }
-));
+	.pipe(config.jshint.reporter('jshint-stylish'));
+ 
 });
 
 // Generate the code coverage report for the code
 config.gulp.task('mocha', function () {
     return config.gulp.src('app/test/functional/home.js', {read: false})
+    
         // gulp-mocha needs filepaths so you can't have any plugins before it 
         .pipe(config.mocha({reporter: 'good-mocha-html-reporter', //good-mocha-html-reporter, spec, nyan
     timeout: 15000,
@@ -80,40 +78,34 @@ config.gulp.task('sonar', function () {
 });
 
 // Watch scss AND html files, doing different things with each.
-config.gulp.task('serve', function () {
+//config.gulp.task('serve', function () {
 
-    // Serve files from the root of this project
-    //config.browserSync.init({
-   //     server: {
-   //         baseDir: "app\public\views\home.html"
-  //      }
-   // });
+   // config.gulp.watch("app\public\views\home.html").on("change", config.browserSync.reload);
+//});
 
-    config.gulp.watch("app\public\views\home.html").on("change", config.browserSync.reload);
-});
-
-config.gulp.task('html', function() {
-  config.gulp.src('./app/public/views/home.html')
+//config.gulp.task('html', function() {
+  //config.gulp.src('./app/public/views/home.html')
    // .pipe(livereload())
-    .pipe(refresh());
-});
+   // .pipe(refresh());
+//});
 
 //watches the files continuously mentioned in it
-config.gulp.task('watch', function () {
-     //livereload.listen()
-    refresh.listen()
-   //  var reloader = autoReload();
-  // copy the auto-reload.js script to 
-  // the output 
-//  reloader.script()
-   // .pipe(config.gulp.dest(outapp));
-    config.gulp.watch(['./app/public/views/home.html'],['html'])
+//config.gulp.task('watch', function () {
+
+   // config.refresh.listen()
+ 
+   // config.gulp.watch(['./app/public/views/home.html'],['html'])
                 
-      //.on('change',config.browserSync.reload);
+//});
+
+config.gulp.task('zip', function () {
+    return config.gulp.src('./**')
+       .pipe(config.zip('test.zip'))
+        .pipe(config.gulp.dest('./distribution'));
 });
 
 //call the below mentioned task together
-config.gulp.task('default',['test','lint','mocha','sonar','watch']);
+config.gulp.task('default',['test','lint','mocha','zip']);
     
 
 
