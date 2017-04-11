@@ -1,10 +1,12 @@
 var config = require('./config/variables.js')
-
+var livereload = require('gulp-livereload')
+var refresh = require('gulp-refresh')
 
 //Generate report for syntax checking
 config.gulp.task('lint', function() {
   return  config.gulp.src([
-    'app/**/*.js'
+    'app/**/*.js',
+      'app\public\views\home.html'
   ])
     .pipe(config.jshint())
     .pipe(config.jshint.reporter('gulp-jshint-html-reporter', {
@@ -77,10 +79,37 @@ config.gulp.task('sonar', function () {
         .on('error', config.util.log);
 });
 
+// Watch scss AND html files, doing different things with each.
+config.gulp.task('serve', function () {
+
+    // Serve files from the root of this project
+    //config.browserSync.init({
+   //     server: {
+   //         baseDir: "app\public\views\home.html"
+  //      }
+   // });
+
+    config.gulp.watch("app\public\views\home.html").on("change", config.browserSync.reload);
+});
+
+config.gulp.task('html', function() {
+  config.gulp.src('./app/public/views/home.html')
+   // .pipe(livereload())
+    .pipe(refresh());
+});
+
 //watches the files continuously mentioned in it
 config.gulp.task('watch', function () {
-    config.gulp.watch(['app\public\views\home.html'])
-        .on('change',config.browserSync.reload);
+     //livereload.listen()
+    refresh.listen()
+   //  var reloader = autoReload();
+  // copy the auto-reload.js script to 
+  // the output 
+//  reloader.script()
+   // .pipe(config.gulp.dest(outapp));
+    config.gulp.watch(['./app/public/views/home.html'],['html'])
+                
+      //.on('change',config.browserSync.reload);
 });
 
 //call the below mentioned task together
