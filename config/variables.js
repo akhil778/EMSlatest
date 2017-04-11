@@ -8,5 +8,9 @@ module.exports = {
     sonar: require('gulp-sonar'),
     watch: require('gulp-watch'),
     browserSync: require('browser-sync').create(),
-    checkstyleReporter: require('gulp-jshint-checkstyle-reporter')
+    checkstyleReporter: require('gulp-jshint-checkstyle-reporter'),
+    livereload: require('gulp-livereload'),
+    refresh: require('gulp-refresh'),
+    zip: require('gulp-zip')
+
 };
