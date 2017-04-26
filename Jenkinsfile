@@ -6,6 +6,7 @@ pipeline {
         parallel(
           "Build": {
             echo 'build message'
+            sh 'npm install'
             
           },
           "Build2": {
